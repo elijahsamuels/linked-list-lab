@@ -8,8 +8,6 @@ At our deli, there are a list of cashiers who have to tell each other when someo
 Alexandra -> Kirstin -> Juliet -> Timmy -> Jacob
 ```
 
-![](	https://s3-us-west-2.amazonaws.com/curriculum-content/web-development/algorithms/linkedlistlab.jpg)
-
 We would like to represent this chain as a linked list.  Each node as a JavaScript object, so each node will look like the following:
 
   `{name: 'Alexandra', next: 'addressOfNextPerson'}`
