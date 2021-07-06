@@ -7,35 +7,69 @@
 // }
 
 function getName (node) {
-	console.log("getName: ", node.name)
+	// console.log("getName: ", node.name)
 	return node.name
 }
 
-function headNode (nodeIndexName, collection) {
-	console.log("nodeIndexName: ", nodeIndexName)
-	console.log("collection: ", collection)
-	console.log("headNode: ", collection[nodeIndexName])
-	return collection[nodeIndexName]
+function headNode (nodeKeyName, collection) {
+	// console.log("nodeKeyName: ", nodeKeyName)
+	// console.log("collection: ", collection)
+	// console.log("headNode: ", collection[nodeKeyName])
+	return collection[nodeKeyName]
 }
 
 function next(node, collection) {
 	
 	let nextAddress = node.next;
-	console.log("next: ", collection[`${nextAddress}`])
+	// console.log("next: ", collection[`${nextAddress}`])
 	return collection[`${nextAddress}`]
 	
 }
 
 // should return the node at the provided index
-function indexAt(node, collection, linkedList){
-	let currentNode = headNode(linkedList, collection);
-	let currentIdx = 0
-	while(currentNode != node){
-	  currentIdx++
-	  currentNode = next(currentNode, collection)
-	//   console.log("currentNode: ", currentNode)
+function nodeAt(index, nodeKeyName, collection) {
+	let currentNode = headNode(nodeKeyName, collection);
+	// console.log("index: ", index)
+	// console.log("nodeKeyName: ", nodeKeyName)
+	// console.log("collection: ", collection)
+	for(let i =0; i < index; i++) {
+		currentNode = next(currentNode, collection)
+		// console.log(`currentNode: `, currentNode[i])
 	}
-	// console.log("currentIdx: ", currentIdx)
-	return currentIdx
-  }
+	// console.log(`currentNode: `, currentNode)
+	return currentNode
+}
+
+// #addressAt should return the address of the node at the address:
+function addressAt(index, nodeKeyName, collection) {
+	// console.log("index: ", index)
+	// console.log("nodeKeyName: ", nodeKeyName)
+	// console.log("collection: ", collection)
+	if(index == 0) {
+		return nodeKeyName
+	} else {
+		let addressOfNode = nodeAt(index-1, nodeKeyName, collection)
+		console.log(addressOfNode)
+		return addressOfNode.next
+	}
+}
+
+// #indexAt should return the index of the provided node:
+
+function indexAt() {
+
+
+}
+
+// function indexAt(node, collection, linkedList){
+// 	let currentNode = headNode(linkedList, collection);
+// 	let currentIdx = 0
+// 	while(currentNode != node){
+// 	  currentIdx++
+// 	  currentNode = next(currentNode, collection)
+// 	//   console.log("currentNode: ", currentNode)
+// 	}
+// 	// console.log("currentIdx: ", currentIdx)
+// 	return currentIdx
+//   }
   
